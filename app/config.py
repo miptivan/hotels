@@ -1,5 +1,7 @@
-from pydantic_settings import BaseSettings
 from pydantic import root_validator
+from pydantic_settings import BaseSettings
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 
 class Settings(BaseSettings):
@@ -19,5 +21,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-
-print(settings.DATABASE_URL)
